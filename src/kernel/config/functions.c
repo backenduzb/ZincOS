@@ -30,3 +30,13 @@ int strcmp(const char *a, const char *b) {
     }
     return *a - *b;
 }
+
+void shutdown() {
+    __asm__ __volatile__ (
+        "mov $0xB004, %dx\n"
+        "mov $0x2000, %ax\n"
+        "out %ax, %dx"
+    );
+    
+    while(1) {}
+}

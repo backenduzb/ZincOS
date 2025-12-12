@@ -1,21 +1,16 @@
-#!/bin/bash
-
 echo "=== Welcome to builder ==="
 
-# Oldingi fayllarni tozalash
 rm -f src/kernel/o/*.o boot/*.bin iso/boot/* 2>/dev/null
 rm -f zinc-0.0.1.iso 2>/dev/null
 
 echo "Compiling..."
-# Asm fayllar
-nasm -f elf32 src/kernel/kernel.asm -o src/kernel/o/kernel_asm.o
-nasm -f elf32 src/kernel/keyboard.asm -o src/kernel/o/keyboard.o
 
-# C fayl
+nasm -f elf32 src/kernel/kernel.asm -o src/kernel/o/kernel_asm.o
+nasm -f elf32 src/kernel/keyboard/keyboard.asm -o src/kernel/o/keyboard.o
+
 gcc -m32 -ffreestanding -nostdlib -O2 -Wall -Wextra -c src/kernel/kernel.c -o src/kernel/o/kernel.o
 
 echo "Linking..."
-# Link qilish: kernel_asm.o + kernel.o + keyboard.o
 ld -m elf_i386 -T src/linker.ld -o boot/mykernel.bin \
     src/kernel/o/kernel_asm.o \
     src/kernel/o/keyboard.o \
