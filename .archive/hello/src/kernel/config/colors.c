@@ -1,7 +1,0 @@
-#define CYAN_ON_BLACK 0xB
-#define WHITE_ON_BLACK 0x0F
-#define RED_ON_BLACK 0xC
-#define GREEN_ON_BLACK 0xA
-#define YELLOW_ON_BLACK 0xE
-
-#define BLACK_ON_BLACK 0xF0
