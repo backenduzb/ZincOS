@@ -31,7 +31,6 @@ void kernel_main(unsigned int magic, unsigned int addr)
         char key = wait_for_key_single();
 
         if (key != 0) {
-
             if (key == '\n' && strcmp(key_counter, "clear") == 0 ){
                 clear_screen();
                 key_counter[0] = 0;
@@ -39,6 +38,9 @@ void kernel_main(unsigned int magic, unsigned int addr)
             }
             if (key == '\n' && strcmp(key_counter, "mdown") == 0){
                 shutdown();
+            }
+            else if(key=='\n'){
+                continue;
             }
 
             else if (key == 8 && key_idx > 0) {
