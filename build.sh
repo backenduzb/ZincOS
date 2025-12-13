@@ -8,6 +8,7 @@ echo "Compiling..."
 nasm -f elf32 src/kernel/kernel.asm -o src/kernel/o/kernel_asm.o
 nasm -f elf32 src/kernel/keyboard/keyboard.asm -o src/kernel/o/keyboard.o
 nasm -f elf32 src/kernel/functions/shutdown.asm -o src/kernel/o/functions_shutdown.o
+nasm -f elf32 src/kernel/gdt.asm -o src/kernel/o/gdt.o
 
 gcc -m32 -ffreestanding  -nostdlib -O2 -Wall -Wextra -c src/kernel/kernel.c -o src/kernel/o/kernel.o
 
@@ -16,7 +17,8 @@ ld -m elf_i386 -T src/linker.ld -o boot/mykernel.bin \
     src/kernel/o/kernel_asm.o \
     src/kernel/o/keyboard.o \
     src/kernel/o/kernel.o \
-    src/kernel/o/functions_shutdown.o
+    src/kernel/o/functions_shutdown.o \
+    src/kernel/o/gdt.o
 
 echo "Multiboot checking..."
 if grub-file --is-x86-multiboot boot/mykernel.bin; then
