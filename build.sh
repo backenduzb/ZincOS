@@ -29,6 +29,7 @@ mkdir -p iso/boot/grub
 cp boot/mykernel.bin iso/boot/
 
 echo "Writing grub.cfg ..."
+mkdir -p iso/boot/grub
 cat > iso/boot/grub/grub.cfg << 'EOF'
 set timeout=10
 set default=0
