@@ -26,12 +26,29 @@ Minimal, educational operating system project built from scratch.
 ## 🧱 Project Structure
 
 ```
-ZINC_kernel/
-├──functions/
-├──sources/
-├──modules/
-├──temp/
-└──kernel.c
+ZINC
+├── kernel
+│   ├── config
+│   │   ├── colors.c
+│   │   ├── functions.c
+│   │   └── settings.c
+│   ├── functions
+│   │   └── shutdown.asm
+│   ├── kernel.asm
+│   ├── kernel.c
+│   ├── keyboard
+│   │   ├── keyboard.asm
+│   │   └── keyboard.c
+│   ├── o
+│   │   ├── functions_shutdown.o
+│   │   ├── kernel_asm.o
+│   │   ├── kernel.o
+│   │   └── keyboard.o
+│   └── timing
+│       └── sleep.c
+└── linker.ld
+
+7 directories, 14 files
 
 others coming soon ...
 ```
