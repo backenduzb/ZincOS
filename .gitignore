@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 .archive/
 iso/
 build/
 boot/
 =======
 *.iso
->>>>>>> origin/test
