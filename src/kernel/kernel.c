@@ -43,12 +43,11 @@ void kernel_main(unsigned int magic, unsigned int addr)
                 continue;
             }
 
-            else if (key == 8 && key_idx > 0) {
+            else if (key == 8 && key_idx >= 0) {
                 key_idx--;                
-                key_counter[key_idx] = 0; 
-                   
+                key_counter[key_idx] = 0;   
             }
-            else{
+            else {
                 key_counter[key_idx++] = key;
                 key_counter[key_idx] = 0; 
             }
