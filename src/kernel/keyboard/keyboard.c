@@ -2,6 +2,7 @@ extern char get_key();
 
 char scancode_to_char(char key) {
     switch(key) {
+        //String keys
         case 0x1E: return 'a';
         case 0x30: return 'b';
         case 0x2E: return 'c';
@@ -28,11 +29,38 @@ char scancode_to_char(char key) {
         case 0x2D: return 'x';
         case 0x15: return 'y';
         case 0x2C: return 'z';
-        case 0x39: return ' ';    
+        //Space button
+        case 0x39: return ' ';
+        //Backspace button    
         case 0x0E: return 8;      
         case 0x0F: return 9;
+        //Enter button
         case 0x1C: return '\n';
-
+        //Ctrl buttons LR
+        case 0x1D: return 10;
+        case 0xE01D: return 11;
+        //Shift buttons LR
+        case 0x2A: return 12;
+        case 0x36: return 13;
+        //Alt buttons LR
+        case 0x38: return 14;
+        case 0xE038: return 15;
+        //Super buttons LR
+        case 0xE05B: return 16;
+        case 0xE05C: return 17;
+        //Menu button
+        case 0xE05D: return 18;
+        //Digit buttons
+        case 0x0B: return '0';
+        case 0x02: return '1';
+        case 0x03: return '2';
+        case 0x04: return '3';
+        case 0x05: return '4';
+        case 0x06: return '5';
+        case 0x07: return '6';
+        case 0x08: return '7';
+        case 0x09: return '8';
+        case 0x0A: return '9';
         default: return 0;        
     }
 }

@@ -50,7 +50,6 @@ void kernel_main(unsigned int magic, unsigned int addr)
                 }
                 else
                 {
-                    print_string("Error, no command like that, bitch!", 0, 0, RED_ON_BLACK);
                     strcpy(key_counter, "[root@zinc] - $ ");
                     key_idx = 16;
                     current_line +=2;
