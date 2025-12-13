@@ -10,6 +10,17 @@ void clear_screen() {
     }
 }
 
+void clear_line(int line){
+    if (line == 0){
+        line = 1;
+    }
+    char *vga = (char*) VGA_ADDRESS;
+    for (int i = (line * WIDTH)*2; i < ((WIDTH * line) + WIDTH)*2 ; i += 2){
+        vga[i] = ' ';
+        vga[i + 2] = BLACK_ON_BLACK;
+    }
+}
+
 void print_string(const char *str, int x, int y, char color) {
     unsigned short *vga_buffer = (unsigned short*)VGA_ADDRESS;
     int position = y * WIDTH + x;
@@ -25,12 +36,23 @@ void print_char_at(char c, int x, int y, int color) {
 }
 
 int strcmp(const char *a, const char *b) {
+    a += 16;
     while (*a && (*a == *b)) {
         a++;
         b++;
     }
     return *a - *b;
 }
+
+void strcpy(char *dest, const char *src) {
+    while (*src) {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+    *dest = '\0';
+}
+
 
 void shutdown() {
     __asm__ __volatile__ (
