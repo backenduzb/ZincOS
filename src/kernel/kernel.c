@@ -19,6 +19,8 @@ void kernel_main(unsigned int magic, unsigned int addr)
     strcpy(key_counter, "[root@zinc] - $ ");
     int shown = 0;
     int current_line = 5;
+    
+    print_string("Press any key for open console ....", 1, current_line + 2, WHITE_ON_BLACK);
 
     while (1)
     {
@@ -29,7 +31,6 @@ void kernel_main(unsigned int magic, unsigned int addr)
             print_string("==========================", 0, 4, CYAN_ON_BLACK);
             shown = 1;
         }
-
         char key = wait_for_key_single();
 
         if (key != 0)
