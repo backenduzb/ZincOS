@@ -1,11 +1,12 @@
 #include "settings.c"
 #include "colors.c"
 
+
 void clear_screen() {
     char *vga = (char*)VGA_ADDRESS;
     for (int i = 0; i < WIDTH * HEIGHT * 2; i += 2) {
         vga[i] = ' ';
-        vga[i + 1] = CYAN_ON_BLACK;
+        vga[i + 1] = BLACK_ON_BLACK;
     }
 }
 

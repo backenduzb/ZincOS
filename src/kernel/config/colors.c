@@ -4,4 +4,5 @@
 #define GREEN_ON_BLACK 0xA
 #define YELLOW_ON_BLACK 0xE
 
-#define BLACK_ON_BLACK 0xF0
+// #define BLACK_ON_BLACK 0xF0
+#define BLACK_ON_BLACK 0x0

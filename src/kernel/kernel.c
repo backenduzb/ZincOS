@@ -2,18 +2,20 @@
 #include "config/settings.c"
 #include "config/functions.c"
 #include "keyboard/keyboard.c"
+#include "timing/sleep.c"
 
 void kernel_main(unsigned int magic, unsigned int addr)
 {
+    // init_pit();
+    // enable_interrupts();
     clear_screen();
 
     if (magic == 0x2BADB002)
-        print_string("Succes Loaded Zinc", 0, 0, WHITE_ON_BLACK);
+        print_string("Succes Loaded Zinc", 0, 1, BLACK_ON_BLACK);
     else
         print_string("Have an error !", 0, 0, RED_ON_BLACK);
-
     clear_screen();
-    
+
     char key_counter[256];
     int key_idx = 0;
     int shown = 0;
@@ -30,26 +32,36 @@ void kernel_main(unsigned int magic, unsigned int addr)
 
         char key = wait_for_key_single();
 
-        if (key != 0) {
-            if (key == '\n' && strcmp(key_counter, "clear") == 0 ){
+        if (key != 0)
+        {
+            if (key == '\n' && strcmp(key_counter, "clear") == 0)
+            {
                 clear_screen();
                 key_counter[0] = 0;
                 key_idx = 0;
             }
-            if (key == '\n' && strcmp(key_counter, "mdown") == 0){
+            if (key == '\n' && strcmp(key_counter, "mdown") == 0)
+            {
                 shutdown();
             }
-            else if(key=='\n'){
+            else if (key == '\n')
+            {
                 continue;
             }
 
-            else if (key == 8 && key_idx >= 0) {
-                key_idx--;                
-                key_counter[key_idx] = 0;   
+            else if (key == 8 && key_idx >= 0)
+            {
+                cpu_sleep(10000);
+                if (key_idx > 0)
+                {
+                    key_idx--;
+                }
+                key_counter[key_idx] = 0;
             }
-            else {
+            else
+            {
                 key_counter[key_idx++] = key;
-                key_counter[key_idx] = 0; 
+                key_counter[key_idx] = 0;
             }
             clear_screen();
             print_string(key_counter, 1, 1, WHITE_ON_BLACK);
