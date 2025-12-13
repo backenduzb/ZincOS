@@ -18,10 +18,9 @@ void kernel_main(unsigned int magic, unsigned int addr)
     int key_idx = 16;
     strcpy(key_counter, "[root@zinc] - $ ");
     int shown = 0;
-    int current_line = 5;
+    int current_line = 6;
     
-    print_string("Press any key for open console ....", 1, current_line + 2, WHITE_ON_BLACK);
-
+    print_string(key_counter, 1, current_line, WHITE_ON_BLACK);
     while (1)
     {
         if (!shown)
@@ -52,7 +51,7 @@ void kernel_main(unsigned int magic, unsigned int addr)
                 {
                     strcpy(key_counter, "[root@zinc] - $ ");
                     key_idx = 16;
-                    current_line++;
+                    current_line +=2;
                 }
             }
             else if (key == 8 && key_idx >= 16)
@@ -71,6 +70,7 @@ void kernel_main(unsigned int magic, unsigned int addr)
             clear_line(current_line);
             print_string(key_counter, 1, current_line, WHITE_ON_BLACK);
         }
+
         cpu_sleep(100);
     }
 }
