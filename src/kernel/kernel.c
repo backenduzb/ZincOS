@@ -1,9 +1,8 @@
 #include "functions/c/string/functions.h"
 #include "functions/c/screen/functions.h"
 #include "config/colors.h"
-#include "keyboard/keyboard.c"
-#include "timing/sleep.c"
-
+#include "keyboard/keyboard.h"
+#include "timing/sleep.h"
 
 extern void shutdown();
 

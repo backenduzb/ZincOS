@@ -1,3 +1,5 @@
+#include "keyboard.h"
+
 extern char get_key();  
 
 char scancode_to_char(char key) {

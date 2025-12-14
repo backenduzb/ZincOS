@@ -12,6 +12,9 @@ nasm -f elf32 src/kernel/functions/asm/shutdown.asm -o src/kernel/o/functions_sh
 gcc -m32 -ffreestanding  -nostdlib -O2 -Wall -Wextra -c src/kernel/kernel.c -o src/kernel/o/kernel.o
 gcc -m32 -ffreestanding -c src/kernel/functions/c/screen/functions.c -o src/kernel/o/functions_screen.o
 gcc -m32 -ffreestanding -c src/kernel/functions/c/string/functions.c -o src/kernel/o/functions_string.o
+gcc -m32 -ffreestanding -c src/kernel/timing/sleep.c -o src/kernel/o/sleep.o
+gcc -m32 -ffreestanding -c src/kernel/keyboard/keyboard.c -o src/kernel/o/keyboardc.o
+
 
 echo "Linking..."
 ld -T src/linker.ld -m elf_i386 -o boot/mykernel.bin \
@@ -20,7 +23,9 @@ ld -T src/linker.ld -m elf_i386 -o boot/mykernel.bin \
     src/kernel/o/functions_screen.o \
     src/kernel/o/functions_string.o \
     src/kernel/o/keyboard.o \
-    src/kernel/o/functions_shutdown.o
+    src/kernel/o/functions_shutdown.o \
+    src/kernel/o/keyboardc.o \
+    src/kernel/o/sleep.o
 
 
 echo "Multiboot checking..."
