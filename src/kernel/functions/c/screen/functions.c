@@ -1,6 +1,6 @@
-#include "settings.c"
-#include "colors.c"
-
+#include "../../../config/settings.h"
+#include "../../../config/colors.h"
+#include "functions.h"
 
 void clear_screen() {
     char *vga = (char*)VGA_ADDRESS;
@@ -33,22 +33,4 @@ void print_string(const char *str, int x, int y, char color) {
 void print_char_at(char c, int x, int y, int color) {
     unsigned short *video = (unsigned short*)VGA_ADDRESS;
     video[y * 80 + x] = (color << 8) | c;
-}
-
-int strcmp(const char *a, const char *b) {
-    a += 16;
-    while (*a && (*a == *b)) {
-        a++;
-        b++;
-    }
-    return *a - *b;
-}
-
-void strcpy(char *dest, const char *src) {
-    while (*src) {
-        *dest = *src;
-        dest++;
-        src++;
-    }
-    *dest = '\0';
 }
