@@ -26,9 +26,7 @@ void kernel_main(unsigned int magic, unsigned int addr)
     hex_buf[10] = '\0';
     
     print_string(hex_buf, 13, 0, WHITE_ON_BLACK);
-    
-    // MULTIBOOT 1 uchun TO'G'RI tekshirish
-    if (magic == 0x2BADB002) {  // <<< TO'G'RI! Kernelga 0x2BADB002 keladi
+    if (magic == 0x2BADB002) { 
         print_string(" - MULTIBOOT OK", 23, 0, GREEN_ON_BLACK);
         print_string("Zinc OS Initialized", 0, 2, CYAN_ON_BLACK);
     } else {
