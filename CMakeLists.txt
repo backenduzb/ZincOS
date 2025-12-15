@@ -4,7 +4,7 @@ project(ZincOS C ASM_NASM)
 enable_language(ASM_NASM)
 
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32 -ffreestanding -O2 -Wall -Wextra -nostdlib")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32 -ffreestanding -O2 -Wall -Wextra")
 set(CMAKE_ASM_NASM_FLAGS "${CMAKE_ASM_NASM_FLAGS} -f elf32")
 
 set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/src)
@@ -28,6 +28,7 @@ include_directories(
 set(ASM_SOURCES
     ${SOURCE_DIR}/kernel/kernel.asm
     ${SOURCE_DIR}/kernel/keyboard/keyboard.asm
+    ${SOURCE_DIR}/kernel/gdt/gdt.asm
 )
 
 if(EXISTS ${SOURCE_DIR}/kernel/functions/asm/shutdown.asm)

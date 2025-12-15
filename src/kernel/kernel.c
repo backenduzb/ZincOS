@@ -10,7 +10,7 @@ void kernel_main(unsigned int magic, unsigned int addr)
 {
     print_string("Loading kernel ...", 0, 0, WHITE_ON_BLACK);
 
-    if (magic == 0x2BADB002)
+    if (magic == 0x3A434347)
         print_string("Succes Loaded Zinc", 0, 0, WHITE_ON_BLACK);
     else
         print_string("Have an error !", 0, 0, RED_ON_BLACK);
