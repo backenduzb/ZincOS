@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+9c3ef3ebe1c2db8c0e72da44d79f1257 CMakeFiles/iso
+3e28ef2b8e036777a644e433a2d68c42 gdt.o
+ff9fb165c28a5e5a1683769f9decd21a kernel.o
+15807d66168551c71da1857a5a6966cb keyboard.o
+248f23b11692e7a845ee8d7730a30d2e shutdown.o

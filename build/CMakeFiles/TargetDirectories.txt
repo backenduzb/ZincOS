@@ -1,0 +1,4 @@
+/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles/mykernel.dir
+/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles/iso.dir
+/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles/edit_cache.dir
+/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles/rebuild_cache.dir
