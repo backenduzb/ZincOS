@@ -28,7 +28,6 @@ include_directories(
 set(ASM_SOURCES
     ${SOURCE_DIR}/kernel/kernel.asm
     ${SOURCE_DIR}/kernel/keyboard/keyboard.asm
-    ${SOURCE_DIR}/kernel/gdt/gdt.asm
 )
 
 if(EXISTS ${SOURCE_DIR}/kernel/functions/asm/shutdown.asm)

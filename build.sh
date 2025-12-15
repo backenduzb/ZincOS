@@ -8,6 +8,9 @@ echo "Compiling..."
 nasm -f elf32 src/kernel/kernel.asm -o src/kernel/o/kernel_asm.o
 nasm -f elf32 src/kernel/keyboard/keyboard.asm -o src/kernel/o/keyboard.o
 nasm -f elf32 src/kernel/functions/asm/shutdown.asm -o src/kernel/o/functions_shutdown.o
+nasm -f elf32 src/kernel/config/gdt/gdt.asm -o src/kernel/o/gdt_asm.o
+nasm -f elf32 src/kernel/config/idt/idt.asm -o src/kernel/o/idt_asm.o
+
 
 gcc -m32 -ffreestanding  -nostdlib -O2 -Wall -Wextra -c src/kernel/kernel.c -o src/kernel/o/kernel.o
 gcc -m32 -ffreestanding -c src/kernel/functions/c/screen/functions.c -o src/kernel/o/functions_screen.o
@@ -25,7 +28,9 @@ ld -T src/linker.ld -m elf_i386 -o boot/mykernel.bin \
     src/kernel/o/keyboard.o \
     src/kernel/o/functions_shutdown.o \
     src/kernel/o/keyboardc.o \
-    src/kernel/o/sleep.o
+    src/kernel/o/sleep.o \
+    src/kernel/o/gdt_asm.o \
+    src/kernel/o/idt_asm.o
 
 
 echo "Multiboot checking..."
