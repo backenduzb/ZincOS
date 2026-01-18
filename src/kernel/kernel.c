@@ -7,23 +7,6 @@
 
 extern void shutdown();
 
-static int streq(const char *a, const char *b)
-{
-    return strcmp(a, b) == 0;
-}
-
-static int starts_with(const char *s, const char *prefix)
-{
-    while (*prefix)
-    {
-        if (*s++ != *prefix++)
-        {
-            return 0;
-        }
-    }
-    return 1;
-}
-
 void kernel_main(unsigned int magic, unsigned int addr)
 {
     char hex_buf[20];
@@ -52,11 +35,12 @@ void kernel_main(unsigned int magic, unsigned int addr)
 
     char key_counter[256];
     unsigned char cfg_sector[512];
+    const unsigned int cfg_lba = 100;
+    int key_idx = 16;
+    strcpy(key_counter, "[root@zinc] - $ ");
     int shown = 0;
     int current_line = 6;
 
-    strcpy(key_counter, "[root@zinc] - $ ");
-    int key_idx = 16;
     print_string(key_counter, 1, current_line, WHITE_ON_BLACK);
     while (1)
     {
@@ -74,18 +58,18 @@ void kernel_main(unsigned int magic, unsigned int addr)
             {
                 const char *cmd = key_counter + 16;
                 int output_line = current_line + 1;
-                if (streq(cmd, "clear"))
+                if (strcmp(cmd, "clear") == 0)
                 {
                     current_line = 0;
                     clear_screen();
                 }
-                else if (streq(cmd, "mdown"))
+                else if (strcmp(cmd, "mdown") == 0)
                 {
                     shutdown();
                 }
-                else if (streq(cmd, "loadcfg"))
+                else if (strcmp(cmd, "loadcfg") == 0)
                 {
-                    int rc = ata_read_sector(100, cfg_sector);
+                    int rc = ata_read_sector(cfg_lba, cfg_sector);
                     if (rc == 0 && cfg_sector[0] == 'Z' && cfg_sector[1] == 'C' &&
                         cfg_sector[2] == 'F' && cfg_sector[3] == 'G')
                     {
@@ -99,7 +83,9 @@ void kernel_main(unsigned int magic, unsigned int addr)
                         print_string("CONFIG READ ERROR", 1, output_line, RED_ON_BLACK);
                     }
                 }
-                else if (starts_with(cmd, "savecfg "))
+                else if (cmd[0] == 's' && cmd[1] == 'a' && cmd[2] == 'v' &&
+                         cmd[3] == 'e' && cmd[4] == 'c' && cmd[5] == 'f' &&
+                         cmd[6] == 'g' && cmd[7] == ' ')
                 {
                     for (int i = 0; i < 512; i++)
                     {
@@ -115,7 +101,7 @@ void kernel_main(unsigned int magic, unsigned int addr)
                     {
                         cfg_sector[out++] = (unsigned char)cmd[idx++];
                     }
-                    int rc = ata_write_sector(100, cfg_sector);
+                    int rc = ata_write_sector(cfg_lba, cfg_sector);
                     clear_line(output_line);
                     if (rc == 0)
                     {
