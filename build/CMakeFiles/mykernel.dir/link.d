@@ -8,6 +8,7 @@
   kernel.o \
   keyboard.o \
   gdt.o \
+  idt.o \
   shutdown.o
 
 /home/vic/Projects/OS/Zinc/ZincOS/src/linker.ld:
@@ -27,5 +28,7 @@ kernel.o:
 keyboard.o:
 
 gdt.o:
+
+idt.o:
 
 shutdown.o:

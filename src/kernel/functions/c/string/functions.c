@@ -1,7 +1,6 @@
 #include "functions.h"
 
 int strcmp(const char *a, const char *b) {
-    a += 16;
     while (*a && (*a == *b)) {
         a++;
         b++;

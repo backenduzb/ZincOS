@@ -17,7 +17,7 @@ void clear_line(int line){
     char *vga = (char*) VGA_ADDRESS;
     for (int i = (line * WIDTH)*2; i < ((WIDTH * line) + WIDTH)*2 ; i += 2){
         vga[i] = ' ';
-        vga[i + 2] = BLACK_ON_BLACK;
+        vga[i + 1] = BLACK_ON_BLACK;
     }
 }
 

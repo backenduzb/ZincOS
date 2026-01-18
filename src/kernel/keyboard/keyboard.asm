@@ -1,11 +1,27 @@
-global get_key
+bits 32
+global keyboard_interrupt
+global keyboard_scancode
+global default_interrupt
 
-get_key:
-.wait:
-    in al, 0x64        
-    test al, 1         
-    jz .wait
+section .bss
+keyboard_scancode: resb 1
 
-    in al, 0x60       
-    movzx eax, al      
-    ret
+
+section .text
+
+default_interrupt:
+    pusha
+    popa
+    iretd
+
+keyboard_interrupt:
+    pusha
+    in al, 0x60
+    test al, 0x80
+    jnz .done
+    mov [keyboard_scancode], al
+.done:
+    mov al, 0x20
+    out 0x20, al
+    popa
+    iretd

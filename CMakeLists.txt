@@ -4,7 +4,7 @@ project(ZincOS C ASM_NASM)
 enable_language(ASM_NASM)
 
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32 -ffreestanding -O2 -Wall -Wextra")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32 -ffreestanding -fno-stack-protector -O2 -Wall -Wextra")
 set(CMAKE_ASM_NASM_FLAGS "${CMAKE_ASM_NASM_FLAGS} -f elf32")
 
 set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/src)
@@ -22,12 +22,15 @@ include_directories(
     ${SOURCE_DIR}/kernel/config
     ${SOURCE_DIR}/kernel/functions/c/screen
     ${SOURCE_DIR}/kernel/functions/c/string
+    ${SOURCE_DIR}/kernel/storage
     ${SOURCE_DIR}/kernel
 )
 
 set(ASM_SOURCES
     ${SOURCE_DIR}/kernel/kernel.asm
     ${SOURCE_DIR}/kernel/keyboard/keyboard.asm
+    ${SOURCE_DIR}/kernel/config/gdt/gdt.asm
+    ${SOURCE_DIR}/kernel/config/idt/idt.asm
 )
 
 if(EXISTS ${SOURCE_DIR}/kernel/functions/asm/shutdown.asm)
@@ -65,6 +68,7 @@ set(C_SOURCES
     ${SOURCE_DIR}/kernel/functions/c/string/functions.c
     ${SOURCE_DIR}/kernel/keyboard/keyboard.c
     ${SOURCE_DIR}/kernel/timing/sleep.c
+    ${SOURCE_DIR}/kernel/storage/ata.c
 )
 
 foreach(cfile ${C_SOURCES})

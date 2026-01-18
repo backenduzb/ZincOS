@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o"
   "CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o.d"
   "gdt.o"
+  "idt.o"
   "kernel.o"
   "keyboard.o"
   "shutdown.o"

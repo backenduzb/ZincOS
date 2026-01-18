@@ -88,12 +88,12 @@ clean: CMakeFiles/iso.dir/clean
 CMakeFiles/mykernel.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mykernel.dir/build.make CMakeFiles/mykernel.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mykernel.dir/build.make CMakeFiles/mykernel.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11 "Built target mykernel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11,12 "Built target mykernel"
 .PHONY : CMakeFiles/mykernel.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mykernel.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mykernel.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles 0
 .PHONY : CMakeFiles/mykernel.dir/rule
@@ -105,7 +105,7 @@ mykernel: CMakeFiles/mykernel.dir/rule
 # codegen rule for target.
 CMakeFiles/mykernel.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mykernel.dir/build.make CMakeFiles/mykernel.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11 "Finished codegen for target mykernel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11,12 "Finished codegen for target mykernel"
 .PHONY : CMakeFiles/mykernel.dir/codegen
 
 # clean rule for target.
@@ -125,7 +125,7 @@ CMakeFiles/iso.dir/all: CMakeFiles/mykernel.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/iso.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/iso.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles 0
 .PHONY : CMakeFiles/iso.dir/rule

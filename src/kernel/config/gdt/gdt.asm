@@ -1,5 +1,4 @@
 bits 32
-
 global gdt_descriptor
 
 section .gdt
@@ -13,4 +12,4 @@ gdt_end:
 
 gdt_descriptor:
     dw gdt_end - gdt_start - 1   
-    dd gdt_start                 
+    dd gdt_start  

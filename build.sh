@@ -12,11 +12,12 @@ nasm -f elf32 src/kernel/config/gdt/gdt.asm -o src/kernel/o/gdt_asm.o
 nasm -f elf32 src/kernel/config/idt/idt.asm -o src/kernel/o/idt_asm.o
 
 
-gcc -m32 -ffreestanding  -nostdlib -O2 -Wall -Wextra -c src/kernel/kernel.c -o src/kernel/o/kernel.o
-gcc -m32 -ffreestanding -c src/kernel/functions/c/screen/functions.c -o src/kernel/o/functions_screen.o
-gcc -m32 -ffreestanding -c src/kernel/functions/c/string/functions.c -o src/kernel/o/functions_string.o
-gcc -m32 -ffreestanding -c src/kernel/timing/sleep.c -o src/kernel/o/sleep.o
-gcc -m32 -ffreestanding -c src/kernel/keyboard/keyboard.c -o src/kernel/o/keyboardc.o
+gcc -m32 -ffreestanding -fno-stack-protector -nostdlib -O2 -Wall -Wextra -c src/kernel/kernel.c -o src/kernel/o/kernel.o
+gcc -m32 -ffreestanding -fno-stack-protector -c src/kernel/functions/c/screen/functions.c -o src/kernel/o/functions_screen.o
+gcc -m32 -ffreestanding -fno-stack-protector -c src/kernel/functions/c/string/functions.c -o src/kernel/o/functions_string.o
+gcc -m32 -ffreestanding -fno-stack-protector -c src/kernel/timing/sleep.c -o src/kernel/o/sleep.o
+gcc -m32 -ffreestanding -fno-stack-protector -c src/kernel/keyboard/keyboard.c -o src/kernel/o/keyboardc.o
+gcc -m32 -ffreestanding -fno-stack-protector -c src/kernel/storage/ata.c -o src/kernel/o/ata.o
 
 
 echo "Linking..."
@@ -29,6 +30,7 @@ ld -T src/linker.ld -m elf_i386 -o boot/mykernel.bin \
     src/kernel/o/functions_shutdown.o \
     src/kernel/o/keyboardc.o \
     src/kernel/o/sleep.o \
+    src/kernel/o/ata.o \
     src/kernel/o/gdt_asm.o \
     src/kernel/o/idt_asm.o
 

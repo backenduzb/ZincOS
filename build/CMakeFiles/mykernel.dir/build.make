@@ -77,12 +77,16 @@ keyboard.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/keyboard/keyboard.asm
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Assembling keyboard.asm"
 	nasm -f elf32 /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/keyboard/keyboard.asm -o /home/vic/Projects/OS/Zinc/ZincOS/build/keyboard.o
 
-gdt.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/gdt/gdt.asm
+gdt.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/config/gdt/gdt.asm
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Assembling gdt.asm"
-	nasm -f elf32 /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/gdt/gdt.asm -o /home/vic/Projects/OS/Zinc/ZincOS/build/gdt.o
+	nasm -f elf32 /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/config/gdt/gdt.asm -o /home/vic/Projects/OS/Zinc/ZincOS/build/gdt.o
+
+idt.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/config/idt/idt.asm
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Assembling idt.asm"
+	nasm -f elf32 /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/config/idt/idt.asm -o /home/vic/Projects/OS/Zinc/ZincOS/build/idt.o
 
 shutdown.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/functions/asm/shutdown.asm
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Assembling shutdown.asm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Assembling shutdown.asm"
 	nasm -f elf32 /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/functions/asm/shutdown.asm -o /home/vic/Projects/OS/Zinc/ZincOS/build/shutdown.o
 
 CMakeFiles/mykernel.dir/codegen:
@@ -91,7 +95,7 @@ CMakeFiles/mykernel.dir/codegen:
 CMakeFiles/mykernel.dir/src/kernel/kernel.c.o: CMakeFiles/mykernel.dir/flags.make
 CMakeFiles/mykernel.dir/src/kernel/kernel.c.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/kernel.c
 CMakeFiles/mykernel.dir/src/kernel/kernel.c.o: CMakeFiles/mykernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/mykernel.dir/src/kernel/kernel.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/mykernel.dir/src/kernel/kernel.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/mykernel.dir/src/kernel/kernel.c.o -MF CMakeFiles/mykernel.dir/src/kernel/kernel.c.o.d -o CMakeFiles/mykernel.dir/src/kernel/kernel.c.o -c /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/kernel.c
 
 CMakeFiles/mykernel.dir/src/kernel/kernel.c.i: cmake_force
@@ -105,7 +109,7 @@ CMakeFiles/mykernel.dir/src/kernel/kernel.c.s: cmake_force
 CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.o: CMakeFiles/mykernel.dir/flags.make
 CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/functions/c/screen/functions.c
 CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.o: CMakeFiles/mykernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.o -MF CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.o.d -o CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.o -c /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/functions/c/screen/functions.c
 
 CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.i: cmake_force
@@ -119,7 +123,7 @@ CMakeFiles/mykernel.dir/src/kernel/functions/c/screen/functions.c.s: cmake_force
 CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.o: CMakeFiles/mykernel.dir/flags.make
 CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/functions/c/string/functions.c
 CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.o: CMakeFiles/mykernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.o -MF CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.o.d -o CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.o -c /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/functions/c/string/functions.c
 
 CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.i: cmake_force
@@ -133,7 +137,7 @@ CMakeFiles/mykernel.dir/src/kernel/functions/c/string/functions.c.s: cmake_force
 CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.o: CMakeFiles/mykernel.dir/flags.make
 CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/keyboard/keyboard.c
 CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.o: CMakeFiles/mykernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.o -MF CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.o.d -o CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.o -c /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/keyboard/keyboard.c
 
 CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.i: cmake_force
@@ -147,7 +151,7 @@ CMakeFiles/mykernel.dir/src/kernel/keyboard/keyboard.c.s: cmake_force
 CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o: CMakeFiles/mykernel.dir/flags.make
 CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o: /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/timing/sleep.c
 CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o: CMakeFiles/mykernel.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o -MF CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o.d -o CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.o -c /home/vic/Projects/OS/Zinc/ZincOS/src/kernel/timing/sleep.c
 
 CMakeFiles/mykernel.dir/src/kernel/timing/sleep.c.i: cmake_force
@@ -171,6 +175,7 @@ mykernel_EXTERNAL_OBJECTS = \
 "/home/vic/Projects/OS/Zinc/ZincOS/build/kernel.o" \
 "/home/vic/Projects/OS/Zinc/ZincOS/build/keyboard.o" \
 "/home/vic/Projects/OS/Zinc/ZincOS/build/gdt.o" \
+"/home/vic/Projects/OS/Zinc/ZincOS/build/idt.o" \
 "/home/vic/Projects/OS/Zinc/ZincOS/build/shutdown.o"
 
 /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: CMakeFiles/mykernel.dir/src/kernel/kernel.c.o
@@ -181,11 +186,12 @@ mykernel_EXTERNAL_OBJECTS = \
 /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: kernel.o
 /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: keyboard.o
 /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: gdt.o
+/home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: idt.o
 /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: shutdown.o
 /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: CMakeFiles/mykernel.dir/build.make
 /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: CMakeFiles/mykernel.dir/compiler_depend.ts
 /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel: CMakeFiles/mykernel.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vic/Projects/OS/Zinc/ZincOS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mykernel.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Copying kernel to boot directory"
 	/usr/bin/cmake -E copy /home/vic/Projects/OS/Zinc/ZincOS/boot/mykernel /home/vic/Projects/OS/Zinc/ZincOS/build/../boot/mykernel.bin
@@ -199,6 +205,7 @@ CMakeFiles/mykernel.dir/clean:
 .PHONY : CMakeFiles/mykernel.dir/clean
 
 CMakeFiles/mykernel.dir/depend: gdt.o
+CMakeFiles/mykernel.dir/depend: idt.o
 CMakeFiles/mykernel.dir/depend: kernel.o
 CMakeFiles/mykernel.dir/depend: keyboard.o
 CMakeFiles/mykernel.dir/depend: shutdown.o
