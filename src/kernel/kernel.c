@@ -113,6 +113,7 @@ void kernel_main(unsigned int magic, unsigned int addr)
                     }
                 }
 
+                print_string("Command not found!", 1, output_line, RED_ON_BLACK);
                 strcpy(key_counter, "[root@zinc] - $ ");
                 key_idx = 16;
                 current_line += 2;
